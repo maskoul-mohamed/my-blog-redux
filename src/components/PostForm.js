@@ -8,7 +8,6 @@ export default class PostForm extends React.Component {
             title: props.post ? props.post.title : '',
             body: props.post ? props.post.body : '',
             createdAt: moment().valueOf(),
-            userName: props.user.displayName,
             error: ''
         }
     };
@@ -29,8 +28,7 @@ export default class PostForm extends React.Component {
             const post = {
                 title: this.state.title,
                 body: this.state.body,
-                createdAt: this.state.createdAt,
-                userName: this.state.userName
+                createdAt: this.state.createdAt
             };
             this.props.onSubmit(post)
         }

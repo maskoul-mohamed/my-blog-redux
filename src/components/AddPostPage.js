@@ -15,7 +15,6 @@ export class AddPostPage extends React.Component {
             <div>
                 <h1>Add new post</h1>
                 <PostForm 
-                    user={this.props.user}
                     onSubmit={this.onSubmit}
                     />
             </div>
@@ -23,12 +22,9 @@ export class AddPostPage extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => ({
-    user: state.auth.user
-});
 
 const mapDispatchToProps = (dispatch) => ({
     startAddPost: (post) => dispatch(startAddPost(post))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddPostPage);
+export default connect(undefined, mapDispatchToProps)(AddPostPage);

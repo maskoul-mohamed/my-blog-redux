@@ -1,4 +1,4 @@
-import { ADD_POST } from "../actionsType";
+import { ADD_POST, SET_POSTS } from "../actionsType";
 import database from '../../firebase/firebase';
 
 
@@ -25,4 +25,24 @@ export const startAddPost = (postData = {}) => {
             }))
         })
     }
-}
+};
+
+export const setPosts = (posts) => ({
+    type: SET_POSTS,
+    posts
+});
+
+export const startSetPosts = () => {
+    return(dispatch, getState) => {
+        return database.ref('posts').once('value').then((snapshot) => {
+            const posts = []
+            snapshot.forEach((childSnapshot) => {
+                posts.push({
+                    id: childSnapshot.key,
+                    ...childSnapshot.val()
+                });
+            });
+            dispatch(setPosts(posts));
+        }) 
+    }
+};

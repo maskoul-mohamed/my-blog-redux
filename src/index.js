@@ -7,6 +7,8 @@ import { Provider } from 'react-redux';
 import configureStore from './redux/store/configureStore';
 import { firebase } from './firebase/firebase';
 import { login, logout} from './redux/actions/auth';
+import { startSetPosts } from './redux/actions/posts';
+import { history } from './routers/AppRouter';
 
 const store = configureStore();
 
@@ -33,7 +35,11 @@ const renderApp = () => {
 firebase.auth().onAuthStateChanged((user) => {
   if(user){
       store.dispatch(login(user.uid, user.displayName));
+      store.dispatch(startSetPosts())
       renderApp()
+     if(history.location.pathname === '/'){
+       history.push('/dashboard')
+     }
   } else {
       store.dispatch(logout())
       renderApp();

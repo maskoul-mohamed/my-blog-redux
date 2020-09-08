@@ -1,4 +1,4 @@
-import { ADD_POST } from "../actionsType";
+import { ADD_POST, SET_POSTS } from "../actionsType";
 
 const initialState = []
 
@@ -8,7 +8,9 @@ export default (state = initialState, action) => {
             return [
                 ...state,
                 action.post
-            ]
+            ];
+        case SET_POSTS:
+            return action.posts
         default:
             return state;
     }

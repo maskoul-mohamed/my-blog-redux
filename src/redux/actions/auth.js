@@ -1,9 +1,12 @@
 import { firebase, googleAuthProvider } from '../../firebase/firebase';
 import { LOGIN, LOGOUT } from '../actionsType';
 
-export const login = (uid) => ({
+export const login = (uid, displayName) => ({
     type: LOGIN,
-    uid
+    user: {
+        displayName,
+        uid
+    }
 });
 
 export const startLogin = () => {

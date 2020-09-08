@@ -5,14 +5,14 @@ import Header from '../components/Header';
 
 export const PrivateRouter = ({
     isAuthenticated,
-    component: Componenet,
+    component: Componenets,
     ...rest
 }) => (
     <Route {...rest} component={(props) => (
         isAuthenticated ? (
             <div>
                 <Header />
-                <component {...props} />
+                <Componenets {...props} />
             </div>
         ) : (
             <Redirect to='/'/>
@@ -23,7 +23,7 @@ export const PrivateRouter = ({
 
 
 const mapStateToProps = (state) => ({
-    isAuthenticated: !!state.auth.uid
+    isAuthenticated: !!state.auth.user.uid
 });
 
 export default connect(mapStateToProps)(PrivateRouter)

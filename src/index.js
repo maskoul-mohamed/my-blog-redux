@@ -9,7 +9,6 @@ import { firebase } from './firebase/firebase';
 import { login, logout} from './redux/actions/auth';
 
 const store = configureStore();
-const state = store.getState();
 
 const jsx = (
     <Provider store={store}>
@@ -33,15 +32,11 @@ const renderApp = () => {
 
 firebase.auth().onAuthStateChanged((user) => {
   if(user){
-      store.dispatch(login(user.uid));
+      store.dispatch(login(user.uid, user.displayName));
       renderApp()
-      console.log('login ',user)
-      console.log('state uid', state.auth)
   } else {
       store.dispatch(logout())
       renderApp();
-      console.log('logout ',user)
-      console.log('state uid', state.auth.uid)
   }
 });
 

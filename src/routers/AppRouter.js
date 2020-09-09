@@ -8,6 +8,7 @@ import { createBrowserHistory } from 'history';
 import LoginPage from '../components/LoginPage';
 import PublicRoute from './PublicRouter';
 import PrivateRouter from './PrivateRouter';
+import PostDetailPage  from '../components/PostDetailPage';
 
 export let history = createBrowserHistory();
 
@@ -18,7 +19,8 @@ const AppRouter = () => (
                 <PublicRoute  path='/' component={LoginPage} exact={true} />
                 <PrivateRouter path='/dashboard' component={BlogDashboardPage} />
                 <PrivateRouter path='/create' component={AddPostPage} />
-                <PrivateRouter path='/Edit/:id' component={EditPostPage}/>
+                <PrivateRouter path='/edit/:id' component={EditPostPage}/>
+                <PrivateRouter path='/post/:id' component={PostDetailPage}/>
                 <Route component={NotFoundPage} />
             </Switch>
         </div>

@@ -1,4 +1,4 @@
-import { ADD_POST, SET_POSTS, EDIT_POST } from "../actionsType";
+import { ADD_POST, SET_POSTS, EDIT_POST, REMOVE_POST } from "../actionsType";
 
 const initialState = []
 
@@ -22,6 +22,14 @@ export default (state = initialState, action) => {
                         return post
                     }
                 });
+        case REMOVE_POST:
+            return state.filter((post) => {
+                if(post.id !== action.id){
+                    return post
+                } else {
+                    return null;
+                }
+            })
         default:
             return state;
     }

@@ -1,4 +1,4 @@
-import { ADD_POST, SET_POSTS, EDIT_POST } from "../actionsType";
+import { ADD_POST, SET_POSTS, EDIT_POST, REMOVE_POST } from "../actionsType";
 import database from '../../firebase/firebase';
 
 
@@ -59,4 +59,17 @@ export const startEditPost = (updates, id) => {
             dispatch(editPost(updates, id))
         });
     }
-} 
+};
+
+export const removePost = (id) => ({
+    type: REMOVE_POST,
+    id
+});
+
+export const startRemovePost = (id) => {
+    return (dispatch) => {
+        database.ref(`posts/${id}`).remove().then(() => {
+            dispatch(removePost(id));
+        })
+    }
+};

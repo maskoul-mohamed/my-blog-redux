@@ -10,7 +10,7 @@ export default (state = initialState, action) => {
                 action.post
             ];
         case SET_POSTS:
-            return action.posts
+            return action.posts;
         default:
             return state;
     }

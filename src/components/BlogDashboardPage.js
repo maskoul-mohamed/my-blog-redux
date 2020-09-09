@@ -1,8 +1,11 @@
 import React from 'react';
+import PostsList  from './PostsList';
+import PostListFilters from './PostListFilters';
 
 const BlogDashboardPage = () => (
     <div>
-        <h1>This is BlogDashboaedPage</h1>
+        <PostListFilters />
+        <PostsList />
     </div>
 );
 

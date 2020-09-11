@@ -1,0 +1,22 @@
+.header-page {
+    background: $white;
+    padding: $l-size 0;
+    margin-bottom: $l-size;
+}
+
+.header-page__action {
+    margin-top: $m-size;
+}
+
+.header-page__title {
+    font-weight: 300;
+    font-size: $m-size;
+    margin: 0;
+    span {
+        font-weight: 700;
+    };
+
+    @media (min-width: $desk-breakpoint) {
+        font-size: $l-size;
+    }
+}

@@ -31,24 +31,33 @@ export default class PostForm extends React.Component {
                 createdAt: this.state.createdAt
             };
             this.props.onSubmit(post)
+        } else {
+            this.setState(() => ({ error: '* Please Enter a Title and Post body!'}))
         }
     }
     render() {
         return (
-            <form onSubmit={this.onSubmit}>
-                <input 
+            <form className='form' onSubmit={this.onSubmit}>
+                    {this.state.error && <p className='form__error'>{this.state.error}</p> }
+
+                    <input 
+                    className='text-input'
                     type='text'
                     placeholder='Title'
                     value={this.state.title}
                     onChange={this.onTitleChange}
-                />
+                    />
                 <textarea
+                    className='textarea-input'
                     type='body'
                     placeholder='Post body...'
                     value={this.state.body}
                     onChange={this.onPostBodyChange}
                 />
-                <button>Save post</button>
+                <div>
+                    <button className='button'>Save post</button>
+                </div>
+                
             </form>
         )
     };

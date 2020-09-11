@@ -31,32 +31,41 @@ export class PostListFilters extends React.Component {
     }
     render() {
         return (
-            <div>
-                <input 
-                    placeholder='Search'
-                    value={this.props.filters.text}
-                    onChange={this.onTextChange}
-                />
-
-                <select
-                    value={this.props.filters.sortBy}
-                    onChange={this.onSortByChange}
-                >
-                    <option value='newest'>Newest</option>
-                    <option value='oldest'>Oldest</option>
-                </select>
-                <DateRangePicker 
-                        startDate={this.props.filters.startDate}
-                        startDateId={"1"}
-                        endDate={this.props.filters.startDate}
-                        endDateId={"2"}
-                        onDatesChange={this.onDatesChange}
-                        focusedInput={this.state.calendarFocused}
-                        onFocusChange={this.onFocusChange}
-                        numberOfMonths={1}
-                        showClearDates={true}
-                        isOutsideRange={() => false}
-                />
+            <div className='content-container'>
+                <div className='input-group'>
+                    <div className='input-group__item'>
+                        <input
+                            className='text-input'
+                            placeholder='Search'
+                            value={this.props.filters.text}
+                            onChange={this.onTextChange}
+                        />
+                    </div>
+                    <div className='input-group__item'>
+                        <select
+                            className='select'
+                            value={this.props.filters.sortBy}
+                            onChange={this.onSortByChange}
+                        >
+                            <option value='newest'>Newest</option>
+                            <option value='oldest'>Oldest</option>
+                        </select>
+                    </div>
+                    <div className='input-group__item'>
+                        <DateRangePicker 
+                                startDate={this.props.filters.startDate}
+                                startDateId={"1"}
+                                endDate={this.props.filters.startDate}
+                                endDateId={"2"}
+                                onDatesChange={this.onDatesChange}
+                                focusedInput={this.state.calendarFocused}
+                                onFocusChange={this.onFocusChange}
+                                numberOfMonths={1}
+                                showClearDates={true}
+                                isOutsideRange={() => false}
+                        />
+                    </div>
+                </div>
             </div>
         )
     }

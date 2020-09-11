@@ -18,13 +18,18 @@ export class EditPostPage extends React.Component {
     render() {
         return (
             <div>
+                <div className='header-page'>
+                    <div className='content-container'>
+                        <h1 className='header-page__title'>Edit Post</h1>
+                    </div>
+                </div>
                 {this.isOwnerPost ? (
-                    <div>
+                    <div className='content-container'>
                         <PostForm 
                             post={this.props.post}
                             onSubmit={this.onSubmit}
                         />
-                        <button onClick={this.onRemove}>Remove</button>
+                        <button className='button button--secondary' onClick={this.onRemove}>Remove</button>
                     </div>
                 ) : (
                     <NotFoundPage />

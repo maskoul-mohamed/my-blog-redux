@@ -16,16 +16,18 @@ export class PostDetailPage extends React.Component {
     }
     render() {
         return (
-        <div>
-            <h1>{this.props.post.title}</h1>
-            <p>{this.props.post.body}</p>
-            <p>{moment(this.props.post.createdAt).format('MMM Do, YYYY')} - {this.props.post.user.userName}</p>
-            {this.isOwnerPost && 
-                <div>
-                    <button onClick={this.onEditPost}>Edit Post</button> 
-                    <button onClick={this.onRemove}>Remove</button>
-                </div>
-            }
+        <div className='content-container'>
+            <div className='detail-post'>
+                <h1>{this.props.post.title}</h1>
+                <p>{this.props.post.body}</p>
+                <p  className='list-item__data'>{moment(this.props.post.createdAt).format('MMM Do, YYYY')}, by {this.props.post.user.userName}</p>
+                {this.isOwnerPost && 
+                    <div className='detail-post__space'>
+                        <button className='button' onClick={this.onEditPost}>Edit Post</button> 
+                        <button className='button button--secondary' onClick={this.onRemove}>Remove</button>
+                    </div>
+                }
+            </div>
         </div>
         )
     }

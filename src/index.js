@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './styles/style.scss';
 import BlogApp from './components/BlogApp';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';

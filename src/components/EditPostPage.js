@@ -24,7 +24,7 @@ export class EditPostPage extends React.Component {
                     </div>
                 </div>
                 {this.isOwnerPost ? (
-                    <div className='content-container'>
+                    <div className='content-container bottom-space'>
                         <PostForm 
                             post={this.props.post}
                             onSubmit={this.onSubmit}

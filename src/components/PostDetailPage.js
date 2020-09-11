@@ -16,7 +16,7 @@ export class PostDetailPage extends React.Component {
     }
     render() {
         return (
-        <div className='content-container'>
+        <div className='content-container bottom-space'>
             <div className='detail-post'>
                 <h1>{this.props.post.title}</h1>
                 <p>{this.props.post.body}</p>

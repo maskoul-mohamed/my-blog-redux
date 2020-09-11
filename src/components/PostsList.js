@@ -5,7 +5,7 @@ import visibilePostsFilter from '../redux/selectors/filters';
 
 
 export const PostsList = (props) => (
-    <div className='content-container'>
+    <div className='content-container bottom-space'>
         {props.posts.length === 0 ? (
             <p className='list-item__message'>There's no Posts!</p>
         ) : (

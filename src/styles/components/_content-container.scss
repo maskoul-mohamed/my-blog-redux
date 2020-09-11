@@ -3,3 +3,10 @@
     max-width: 80rem;
     padding: 0 $s-size;
 }
+
+.bottom-space {
+    margin-bottom: $s-size;
+    @media (min-width: $desk-breakpoint) {
+        margin-bottom: $l-size;
+    }
+}
